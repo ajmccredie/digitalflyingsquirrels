@@ -1,0 +1,31 @@
+form {
+  max-width: 600px;
+  margin: 0 auto;
+  background-color: #fff8ff;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 0 20px rgba(0,0,0,0.1);
+}
+
+form input, form textarea {
+  border: 2px solid #db3d92;
+  border-radius: 6px;
+  padding: 10px;
+  font-size: 1rem;
+  margin-bottom: 15px;
+  width: 100%;
+}
+
+form button {
+  background: #b229b9;
+  color: white;
+  border: none;
+  padding: 12px 30px;
+  border-radius: 6px;
+  font-weight: bold;
+  transition: background 0.3s ease;
+}
+
+form button:hover {
+  background: #f27745;
+}
