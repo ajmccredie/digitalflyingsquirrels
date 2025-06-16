@@ -29,3 +29,62 @@ form button {
 form button:hover {
   background: #f27745;
 }
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-image: url('/images/staticdarkbackground.png');
+  background-attachment: fixed;
+  background-size: cover;
+  background-position: center;
+}
+
+#bgVideo {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -2;
+}
+
+.hero {
+  padding: 150px 0 100px;
+  background-color: rgba(255, 255, 255, 0.1);
+  text-align: center;
+  position: relative;
+}
+
+.logo {
+  max-width: 180px;
+  margin-bottom: 20px;
+}
+
+.sticky-header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background: rgba(255, 255, 255, 0.9);
+  transition: all 0.3s ease;
+}
+
+.gallery {
+  padding: 60px 0;
+}
+
+.parallax-gallery {
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.contact {
+  background-color: #fafafa;
+  padding: 60px 0;
+}
+
+footer {
+  background-color: #eee;
+  padding: 20px 0;
+  text-align: center;
+}
