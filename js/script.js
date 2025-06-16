@@ -1,9 +1,10 @@
+// Show alert on form submit
 const form = document.querySelector("form");
 form.addEventListener("submit", () => {
   alert("Thank you! Your message has been sent.");
 });
 
-
+// Initialize Swiper carousel
 const swiper = new Swiper('.swiper', {
   slidesPerView: 1,
   loop: true,
@@ -19,11 +20,13 @@ const swiper = new Swiper('.swiper', {
   },
 });
 
+// Header scroll behavior
 window.addEventListener('scroll', () => {
-  const header = document.querySelector('.sticky-header');
+  const header = document.querySelector('.hero');
+
   if (window.scrollY > 50) {
-    header.style.padding = '30px 0';
+    header.classList.add('shrink');
   } else {
-    header.style.padding = '150px 0 100px';
+    header.classList.remove('shrink');
   }
 });
