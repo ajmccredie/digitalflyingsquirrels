@@ -4,19 +4,23 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Digital Flying Squirrels</title>
+
+  <!-- Fonts & Styles -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;500;700&display=swap" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"/>
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet"/>
   <link rel="stylesheet" href="css/style.css"/>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
 </head>
+
 <body>
 
-  <!-- Optional looping background video -->
+  <!-- Optional header loop video -->
   <video autoplay muted loop playsinline id="bgVideo">
     <source src="videos/header-loop.mp4" type="video/mp4">
   </video>
 
+  <!-- Header -->
   <header class="hero">
     <div class="container text-center">
       <img src="images/logo.png" alt="Logo" class="logo img-fluid" />
@@ -25,48 +29,80 @@
     </div>
   </header>
 
+  <!-- Swiper A: Social Media or GIF Gallery -->
+  <section class="swiper-section">
+    <div class="swiper mySwiperA">
+      <div class="swiper-wrapper">
 
-<section class="swiper-section">
-  <div class="swiper mySwiperA">
-    <div class="swiper-wrapper">
-      <div class="swiper-slide">
-        <div class="watermarked-image">
-          <img src="images/gallery1.png" alt="Slide 1">
+        <!-- Slide with video -->
+        <div class="swiper-slide">
+          <div class="watermarked-image">
+            <video src="videos/video1.mp4" muted loop playsinline></video>
+          </div>
         </div>
-      </div>
-      <div class="swiper-slide">
-        <div class="watermarked-image">
-          <img src="images/gallery2.png" alt="Slide 2">
+
+        <!-- Slide with image -->
+        <div class="swiper-slide">
+          <div class="watermarked-image">
+            <img src="images/gallery1.png" alt="Slide 2">
+          </div>
         </div>
+
+        <!-- More dummy slides -->
+        <div class="swiper-slide">
+          <div class="watermarked-image">
+            <img src="images/gallery2.png" alt="Slide 3">
+          </div>
+        </div>
+
+        <div class="swiper-slide">
+          <div class="watermarked-image">
+            <video src="videos/video2.mp4" muted loop playsinline></video>
+          </div>
+        </div>
+
+        <div class="swiper-slide">
+          <div class="watermarked-image">
+            <img src="images/gallery3.png" alt="Slide 4">
+          </div>
+        </div>
+
       </div>
+
+      <div class="swiper-button-next swiper-button-next-a"></div>
+      <div class="swiper-button-prev swiper-button-prev-a"></div>
+      <div class="swiper-pagination swiper-pagination-a"></div>
     </div>
-    <div class="swiper-button-next swiper-button-next-a"></div>
-    <div class="swiper-button-prev swiper-button-prev-a"></div>
-    <div class="swiper-pagination swiper-pagination-a"></div>
-  </div>
-</section>
+  </section>
 
-<section class="swiper-section">
-  <div class="swiper mySwiperB">
-    <div class="swiper-wrapper">
-      <div class="swiper-slide">
-        <div class="watermarked-image">
-          <img src="images/gallery1.png" alt="Slide 1">
+  <!-- Swiper B: Website Showcases (link setup to come) -->
+  <section class="swiper-section">
+    <div class="swiper mySwiperB">
+      <div class="swiper-wrapper">
+
+        <div class="swiper-slide">
+          <div class="watermarked-image">
+            <img src="images/gallery1.png" alt="Site 1">
+          </div>
         </div>
-      </div>
-      <div class="swiper-slide">
-        <div class="watermarked-image">
-          <img src="images/gallery2.png" alt="Slide 2">
+
+        <div class="swiper-slide">
+          <div class="watermarked-image">
+            <img src="images/gallery2.png" alt="Site 2">
+          </div>
         </div>
+
+        <!-- Add more as needed -->
+
       </div>
+
+      <div class="swiper-button-next swiper-button-next-b"></div>
+      <div class="swiper-button-prev swiper-button-prev-b"></div>
+      <div class="swiper-pagination swiper-pagination-b"></div>
     </div>
-    <div class="swiper-button-next swiper-button-next-b"></div>
-    <div class="swiper-button-prev swiper-button-prev-b"></div>
-    <div class="swiper-pagination swiper-pagination-b"></div>
-  </div>
-</section>
+  </section>
 
-
+  <!-- Contact Section -->
   <section class="contact">
     <div class="container">
       <h2 class="mb-4 text-center">Contact Us</h2>
@@ -90,6 +126,7 @@
     </div>
   </section>
 
+  <!-- Footer -->
   <footer>
     <div class="container text-center">
       <p class="mb-2">© 2025 Digital Flying Squirrels</p>
@@ -100,7 +137,8 @@
     </div>
   </footer>
 
-<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-<script src="js/scripts.js"></script>
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  <script src="js/script.js"></script>
 </body>
 </html>
