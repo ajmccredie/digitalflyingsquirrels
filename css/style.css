@@ -3,6 +3,7 @@
   --dark-purple: #120018;
   --orange: #f27745;
   --text-light: #eee;
+  --bg-overlay: rgba(255, 255, 255, 0.05);
 }
 
 /* === GENERAL === */
@@ -21,28 +22,27 @@ body {
 .hero {
   background-color: var(--dark-purple);
   text-align: center;
-  padding: 120px 0 60px;
-  transition: all 0.3s ease;
+  padding: 120px 0;
+  transition: all 0.4s ease;
   position: sticky;
   top: 0;
   z-index: 1000;
 }
 
 .hero.shrink {
-  padding: 10px 0;
+  padding: 20px 0;
 }
 
-/* LOGO SIZES */
 .logo {
   max-width: 300px;
-  transition: max-width 0.4s ease;
+  transition: all 0.4s ease;
 }
 
 .hero.shrink .logo {
   max-width: 80px;
 }
 
-/* <h1> for accessibility, not visual */
+/* <h1> (hidden visually, retained for accessibility) */
 .hero h1 {
   font-size: 0.01rem;
   color: transparent;
@@ -51,24 +51,25 @@ body {
   margin: 0;
 }
 
-/* Subtitle that disappears */
+/* Tagline under logo */
 .tagline {
   font-size: 1.2rem;
   margin-top: 10px;
   color: var(--text-light);
-  transition: opacity 0.3s ease;
+  transition: all 0.3s ease;
 }
 
 .hero.shrink .tagline {
   opacity: 0;
-  visibility: hidden;
+  transform: scaleY(0);
   height: 0;
-  margin: 0;
   overflow: hidden;
+  margin: 0;
+  padding: 0;
+  visibility: hidden;
 }
 
-
-/* === GALLERY === */
+/* === GALLERY SECTION === */
 .gallery {
   padding: 60px 15px;
 }
@@ -81,24 +82,91 @@ body {
   position: relative;
 }
 
-/* Watermark prep (not visible yet) */
-.gallery .img-fluid::after {
-  content: "";
-  position: absolute;
-  bottom: 6px;
-  right: 6px;
-  width: 24px;
-  height: 24px;
-  background: url('../images/watermark-corner.png') no-repeat center center;
-  background-size: contain;
-  opacity: 0.6;
+/* === SWIPER GALLERY === */
+.swiper-section {
+  padding: 60px 15px;
 }
 
-/* === SWIPER OVERRIDES === */
+.mySwiperA,
+.mySwiperB {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.swiper-slide {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.swiper-slide img {
+  max-width: 100%;
+  max-height: 400px;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  border-radius: 8px;
+  border: 2px solid var(--orange);
+  background: rgba(255, 255, 255, 0.03);
+  padding: 10px;
+}
+
+/* Watermark overlay */
+.watermarked-image {
+  position: relative;
+  display: inline-block;
+}
+
+.watermarked-image::after {
+  content: "";
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  width: 48px;
+  height: 48px;
+  background: url('../images/watermark-corner.png') no-repeat center center;
+  background-size: contain;
+  opacity: 1;
+}
+
+/* Swiper controls */
 .swiper-button-next,
 .swiper-button-prev {
   color: var(--orange) !important;
   filter: drop-shadow(0 0 2px black);
+}
+
+.swiper-pagination-bullet {
+  background: var(--orange);
+}
+
+/* === CONTACT SECTION === */
+.contact {
+  background-color: var(--bg-overlay);
+  padding: 60px 15px;
+}
+
+.contact input,
+.contact textarea {
+  background-color: #222;
+  border: 1px solid #444;
+  color: white;
+  padding: 10px;
+  border-radius: 4px;
+}
+
+.contact button {
+  background-color: var(--orange);
+  border: none;
+  padding: 10px 20px;
+  color: #fff;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.contact button:hover {
+  background-color: #ff8c3b;
 }
 
 /* === FOOTER === */
@@ -109,20 +177,31 @@ footer {
   text-align: center;
 }
 
-/* === CONTACT FORM === */
-.contact {
-  background-color: rgba(255, 255, 255, 0.05);
-  padding: 60px 15px;
+footer img {
+  height: 24px;
+  vertical-align: middle;
+  margin-left: 10px;
 }
 
-.contact input,
-.contact textarea {
-  background-color: #222;
-  border: 1px solid #444;
-  color: white;
-}
+/* === RESPONSIVE === */
+@media (max-width: 768px) {
+  .hero {
+    padding: 80px 0;
+  }
 
-.contact button {
-  background-color: var(--orange);
-  border: none;
+  .hero.shrink {
+    padding: 10px 0;
+  }
+
+  .logo {
+    max-width: 180px;
+  }
+
+  .hero.shrink .logo {
+    max-width: 60px;
+  }
+
+  .swiper-slide img {
+    max-height: 250px;
+  }
 }
