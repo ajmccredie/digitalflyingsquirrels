@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
-  // === Shrink Header on Scroll ===
+  // === Header Shrink ===
   const header = document.querySelector(".hero");
   if (header) {
     window.addEventListener("scroll", () => {
@@ -7,15 +7,15 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // === Form Submission Feedback ===
+  // === Clear Form on Submit ===
   const form = document.querySelector("form");
   if (form) {
     form.addEventListener("submit", () => {
-      alert("Thank you! Your message has been sent.");
+      form.reset();
     });
   }
 
-  // === Swiper A: With Video Playback ===
+  // === Swiper A (Video Carousel) ===
   new Swiper(".mySwiperA", {
     loop: true,
     centeredSlides: true,
@@ -42,7 +42,7 @@ document.addEventListener("DOMContentLoaded", () => {
     },
   });
 
-  // === Swiper B: Project Showcase ===
+  // === Swiper B (Projects) ===
   new Swiper(".mySwiperB", {
     loop: true,
     centeredSlides: true,
@@ -62,63 +62,72 @@ document.addEventListener("DOMContentLoaded", () => {
     },
   });
 
-  // === Modal for Swiper B Projects ===
+  // === Modal Logic ===
   const modal = document.getElementById("projectModal");
-  const modalContent = modal?.querySelector(".modal-body");
+  const modalContent = modal?.querySelector("#modalBody");
   const closeBtn = modal?.querySelector(".modal-close");
 
   const projectDetails = [
     {
-      title: "Website One",
-      desc: "An ecommerce site built with Shopify and React. It features secure checkout and a fully responsive UI.",
-      images: ["images/web1.png", "images/web1b.png"]
+      title: "Big Bunny Flying Trapeze",
+      desc: "An ecommerce site taking bookings using bookwhen. Fully functioning commercially built site",
+      image2Desc: "Merchandise pages included in the site.",
+      images: ["images/web1.png", "images/web1b.png"],
+      link: "https://www.bigbunnyflyingtrapeze.co.uk"
     },
     {
-      title: "Website Two",
-      desc: "A portfolio site showcasing 3D animation work. Built with WebGL and Blender renders.",
-      images: ["images/web2.png", "images/web2b.png"]
+      title: "GoldCard Electrical Training",
+      desc: "Commercially built site for training provider in Dorset.",
+      image2Desc: "Site includes two games: pairs and a quiz.",
+      images: ["images/web2.png", "images/web2b.png"],
+      link: "https://www.goldcardelectricaltraining.co.uk"
     },
     {
-      title: "Website Three",
-      desc: "An events platform for live workshops and community collaboration. Features event calendars and live chat.",
-      images: ["images/web3.png", "images/web3b.png"]
+      title: "Eternal Ink",
+      desc: "Portfolio site for tattoo shop",
+      image2Desc: "Site includes instructional videos for customers planning tattoos.",
+      images: ["images/web3.png", "images/web3b.png"],
+      link: "https://ajmccredie.github.io/eternal-ink/advice-and-terms.html"
     },
     {
-      title: "Website Four",
-      desc: "A small business website for a local bakery, with menus, online orders, and seasonal promotions.",
-      images: ["images/web4.png", "images/web4b.png"]
+      title: "Roo's Fudge Kitchen",
+      desc: "Portfolio ecommerce site for ficticious fudge and merchandise brand.",
+      image2Desc: "Product features available to order.",
+      images: ["images/web4.png", "images/web4b.png"],
+      link: "https://roos-fudge-kitchen-9f7897dcad9e.herokuapp.com"
     }
   ];
 
   if (modal && modalContent) {
-    // Open modal on swiper-slide click
-    document.querySelectorAll(".mySwiperB .swiper-slide").forEach((slide, index) => {
+    // Trigger modal on slide click (use data-id for accurate indexing)
+    document.querySelectorAll(".mySwiperB .swiper-slide").forEach((slide) => {
       slide.addEventListener("click", () => {
-        const project = projectDetails[index] || {
-          title: "Unknown Project",
-          desc: "No details available.",
-          images: []
-        };
+        const index = parseInt(slide.getAttribute("data-id"));
+        const project = projectDetails[index];
 
-        const imageHTML = project.images.map(src => `
-          <img src="${src}" alt="${project.title}" class="modal-image" style="width: 100%; margin-bottom: 10px; border-radius: 6px;" />
-        `).join("");
+        if (!project) return;
 
         modalContent.innerHTML = `
           <h3 style="color: var(--orange); margin-bottom: 10px;">${project.title}</h3>
-          ${imageHTML}
-          <p>${project.desc}</p>
+          <p style="margin-bottom: 16px;">${project.desc}</p>
+          <img src="${project.images[0]}" alt="${project.title}" class="modal-image" style="width: 100%; border-radius: 6px; margin-bottom: 20px;" />
+          <p style="margin-bottom: 10px;">${project.image2Desc}</p>
+          <img src="${project.images[1]}" alt="Detail image" class="modal-image" style="width: 100%; border-radius: 6px;" />
+          <div style="text-align: center; margin-top: 20px;">
+            <a href="${project.link}" target="_blank" rel="noopener noreferrer" style="color: var(--orange); font-weight: 600; text-decoration: underline;">
+              Visit the full site here
+            </a>
+          </div>
         `;
+
         modal.classList.add("visible");
       });
     });
 
-    // Close modal on click outside or close button
+    // Modal close behavior
+    closeBtn?.addEventListener("click", () => modal.classList.remove("visible"));
     modal.addEventListener("click", (e) => {
       if (e.target === modal) modal.classList.remove("visible");
     });
-    if (closeBtn) {
-      closeBtn.addEventListener("click", () => modal.classList.remove("visible"));
-    }
   }
 });
