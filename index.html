@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Digital Flying Squirrels</title>
 
   <!-- Fonts & Styles -->
@@ -11,16 +11,12 @@
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet"/>
   <link rel="stylesheet" href="css/style.css"/>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="site.webmanifest">
 </head>
-
 <body>
-
-  <!-- Optional header loop video -->
-  <video autoplay muted loop playsinline id="bgVideo">
-    <source src="videos/header-loop.mp4" type="video/mp4">
-  </video>
-
-  <!-- Header -->
   <header class="hero">
     <div class="container text-center">
       <img src="images/logo.png" alt="Logo" class="logo img-fluid" />
@@ -29,73 +25,56 @@
     </div>
   </header>
 
-  <!-- Swiper A: Social Media or GIF Gallery -->
   <section class="swiper-section">
+    <div class="container text-center mb-4">
+      <h2>Social Media Highlights</h2>
+    </div>
     <div class="swiper mySwiperA">
       <div class="swiper-wrapper">
-
-        <!-- Slide with video -->
-        <div class="swiper-slide">
-          <div class="watermarked-image">
-            <video src="videos/video1.mp4" muted loop playsinline></video>
-          </div>
-        </div>
-
-        <!-- Slide with image -->
-        <div class="swiper-slide">
-          <div class="watermarked-image">
-            <img src="images/gallery1.png" alt="Slide 2">
-          </div>
-        </div>
-
-        <!-- More dummy slides -->
-        <div class="swiper-slide">
-          <div class="watermarked-image">
-            <img src="images/gallery2.png" alt="Slide 3">
-          </div>
-        </div>
-
-        <div class="swiper-slide">
-          <div class="watermarked-image">
-            <video src="videos/video2.mp4" muted loop playsinline></video>
-          </div>
-        </div>
-
-        <div class="swiper-slide">
-          <div class="watermarked-image">
-            <img src="images/gallery3.png" alt="Slide 4">
-          </div>
-        </div>
-
+        <div class="swiper-slide"><div class="watermarked-image"><video src="videos/video1.mp4" muted loop playsinline></video></div></div>
+        <div class="swiper-slide"><div class="watermarked-image"><img src="images/gallery1.png" alt="Slide 2"></div></div>
+        <div class="swiper-slide"><div class="watermarked-image"><img src="images/gallery2.png" alt="Slide 3"></div></div>
+        <div class="swiper-slide"><div class="watermarked-image"><video src="videos/video2.mp4" muted loop playsinline></video></div></div>
+        <div class="swiper-slide"><div class="watermarked-image"><video src="videos/video3.mp4" muted loop playsinline></video></div></div>
+        <div class="swiper-slide"><div class="watermarked-image"><video src="videos/video4.mp4" muted loop playsinline></video></div></div>
+        <div class="swiper-slide"><div class="watermarked-image"><video src="videos/video5.mp4" muted loop playsinline></video></div></div>
+        <div class="swiper-slide"><div class="watermarked-image"><video src="videos/video6.mp4" muted loop playsinline></video></div></div>
+        <div class="swiper-slide"><div class="watermarked-image"><video src="videos/video7.mp4" muted loop playsinline></video></div></div>
+        <div class="swiper-slide"><div class="watermarked-image"><video src="videos/video8.mp4" muted loop playsinline></video></div></div>
       </div>
-
       <div class="swiper-button-next swiper-button-next-a"></div>
       <div class="swiper-button-prev swiper-button-prev-a"></div>
       <div class="swiper-pagination swiper-pagination-a"></div>
     </div>
   </section>
 
-  <!-- Swiper B: Website Showcases (link setup to come) -->
   <section class="swiper-section">
+    <div class="container text-center mb-4">
+      <h2>Website Projects</h2>
+    </div>
     <div class="swiper mySwiperB">
       <div class="swiper-wrapper">
-
         <div class="swiper-slide">
           <div class="watermarked-image">
-            <img src="images/gallery1.png" alt="Site 1">
+            <img src="images/web1.png" alt="Website One" />
           </div>
         </div>
-
         <div class="swiper-slide">
           <div class="watermarked-image">
-            <img src="images/gallery2.png" alt="Site 2">
+            <img src="images/web2.png" alt="Website Two" />
           </div>
         </div>
-
-        <!-- Add more as needed -->
-
+        <div class="swiper-slide">
+          <div class="watermarked-image">
+            <img src="images/web3.png" alt="Website Three" />
+          </div>
+        </div>
+        <div class="swiper-slide">
+          <div class="watermarked-image">
+            <img src="images/web4.png" alt="Website Four" />
+          </div>
+        </div>
       </div>
-
       <div class="swiper-button-next swiper-button-next-b"></div>
       <div class="swiper-button-prev swiper-button-prev-b"></div>
       <div class="swiper-pagination swiper-pagination-b"></div>
@@ -133,11 +112,20 @@
       <a href="https://instagram.com/yourprofile" target="_blank" class="me-2" aria-label="Instagram">
         <i class="fab fa-instagram" style="color: #ff77bb; font-size: 1.2rem;"></i>
       </a>
-      <img src="images/squirrel-icon.png" alt="Flying squirrel logo" style="height: 24px; vertical-align: middle;">
+      <img src="images/logo.png" alt="Flying squirrel logo" style="height: 24px; vertical-align: middle;">
     </div>
   </footer>
 
-  <!-- Scripts -->
+  <!-- Project Info Modal -->
+  <div id="projectModal" class="modal-overlay">
+    <div class="modal-body">
+      <span class="modal-close">&times;</span>
+      <div id="modalBody">
+        <!-- Dynamic content injected here -->
+      </div>
+    </div>
+  </div>
+
   <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
   <script src="js/script.js"></script>
 </body>
