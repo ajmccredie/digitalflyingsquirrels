@@ -282,6 +282,9 @@ footer img {
 }
 
 .modal-body {
+  font-family: 'Play', sans-serif;
+  font-size: 1.1rem;
+  line-height: 1.6;
   background-color: #1a001f;
   border: 2px solid var(--orange);
   padding: 2rem;
@@ -295,6 +298,7 @@ footer img {
 }
 
 .modal-body h3 {
+  font-family: 'Play', sans-serif;
   font-size: 1.5rem;
   margin-bottom: 1rem;
   color: var(--orange);
