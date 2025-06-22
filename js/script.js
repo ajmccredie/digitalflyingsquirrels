@@ -1,6 +1,8 @@
 document.addEventListener("DOMContentLoaded", () => {
-  // === Header Shrink ===
   const header = document.querySelector(".hero");
+  const form = document.querySelector("form");
+
+  // === Shrink Header on Scroll ===
   if (header) {
     window.addEventListener("scroll", () => {
       header.classList.toggle("shrink", window.scrollY > 50);
@@ -8,18 +10,17 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   // === Clear Form on Submit ===
-  const form = document.querySelector("form");
   if (form) {
     form.addEventListener("submit", () => {
       form.reset();
     });
   }
 
-  // === Swiper A (Video Carousel) ===
+  // === Swiper A ===
   new Swiper(".mySwiperA", {
     loop: true,
     centeredSlides: true,
-    slidesPerView: 3,
+    slidesPerView: window.innerWidth < 768 ? 1 : 3,
     spaceBetween: 30,
     autoplay: {
       delay: 4000,
@@ -42,11 +43,11 @@ document.addEventListener("DOMContentLoaded", () => {
     },
   });
 
-  // === Swiper B (Projects) ===
+  // === Swiper B ===
   new Swiper(".mySwiperB", {
     loop: true,
     centeredSlides: true,
-    slidesPerView: 3,
+    slidesPerView: window.innerWidth < 768 ? 1 : 3,
     spaceBetween: 30,
     autoplay: {
       delay: 5000,
@@ -99,7 +100,6 @@ document.addEventListener("DOMContentLoaded", () => {
   ];
 
   if (modal && modalContent) {
-    // Trigger modal on slide click (use data-id for accurate indexing)
     document.querySelectorAll(".mySwiperB .swiper-slide").forEach((slide) => {
       slide.addEventListener("click", () => {
         const index = parseInt(slide.getAttribute("data-id"));
@@ -124,10 +124,22 @@ document.addEventListener("DOMContentLoaded", () => {
       });
     });
 
-    // Modal close behavior
     closeBtn?.addEventListener("click", () => modal.classList.remove("visible"));
     modal.addEventListener("click", (e) => {
       if (e.target === modal) modal.classList.remove("visible");
     });
   }
+
+  document.querySelectorAll('a[href="#contact"]').forEach(link => {
+    link.addEventListener('click', function(e) {
+      e.preventDefault();
+      const target = document.getElementById('contact');
+      if (target) {
+        const yOffset = -100;
+        const y = target.getBoundingClientRect().top + window.pageYOffset + yOffset;
+
+        window.scrollTo({ top: y, behavior: 'smooth' });
+      }
+    });
+  });
 });
