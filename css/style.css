@@ -4,6 +4,7 @@
   --orange: #f27745;
   --text-light: #eee;
   --bg-overlay: rgba(255, 255, 255, 0.05);
+  --neon-pink: #ff77bb;
 }
 
 /* === GENERAL === */
@@ -19,11 +20,17 @@ body {
   line-height: 1.6;
   letter-spacing: 0.3px;
   font-size: 1rem;
+  scroll-behavior: smooth;
 }
 
 /* === HEADING STYLES === */
-h2 {
+h1 {
   font-family: 'Play', sans-serif;
+  color: white;
+}
+
+h2 {
+  font-family: 'Allura', cursive;
   color: white;
   font-size: 2.5rem;
   margin: 0;
@@ -46,10 +53,11 @@ p {
   background-color: var(--dark-purple);
   text-align: center;
   padding: 90px 0;
-  transition: all 0.4s ease;
+  transition: padding 0.4s ease, background 0.4s ease;
   position: sticky;
   top: 0;
   z-index: 1000;
+  will-change: padding;
 }
 
 .hero.shrink {
@@ -58,7 +66,7 @@ p {
 
 .logo {
   max-width: 400px;
-  transition: all 0.4s ease;
+  transition: max-width 0.4s ease;
 }
 
 .hero.shrink .logo {
@@ -74,7 +82,6 @@ p {
 }
 
 /* === TAGLINE === */
-/* Top tagline (main brand name) uses play */
 .hero h2.tagline {
   font-family: 'Play', sans-serif;
   color: white;
@@ -83,18 +90,15 @@ p {
   line-height: 1.2;
 }
 
-/* Bottom tagline (description) */
 .hero p.tagline {
   font-family: 'Allura', cursive;
   font-size: 2.3rem;
-  margin-top: 0.5rem;
-  margin-bottom: 0.5rem;
+  margin-top: 0.3rem;
+  margin-bottom: 0.3rem;
   color: var(--text-light);
   letter-spacing: 0.4px;
 }
 
-
-/* Shrink version (hide smoothly) */
 .hero.shrink .tagline {
   opacity: 0;
   transform: scaleY(0);
@@ -103,24 +107,32 @@ p {
   margin: 0;
   padding: 0;
   visibility: hidden;
+  transition: opacity 0.3s ease, transform 0.3s ease;
 }
 
-/* === GALLERY SECTION === */
-.gallery {
-  padding: 60px 15px;
+/* === CTA BUTTON === */
+.cta-button {
+  display: inline-block;
+  margin: 2rem auto;
+  background: var(--neon-pink);
+  color: #fff;
+  font-family: 'Play', sans-serif;
+  font-size: 1.2rem;
+  padding: 0.8rem 1.6rem;
+  border-radius: 30px;
+  text-decoration: none;
+  transition: background 0.3s ease;
+  box-shadow: 0 0 10px var(--neon-pink);
 }
 
-.gallery .img-fluid {
-  border: 2px solid var(--orange);
-  padding: 10px;
-  background: rgba(255, 255, 255, 0.03);
-  border-radius: 8px;
-  position: relative;
+.cta-button:hover {
+  background: #ff98cb;
 }
 
-/* === SWIPER GALLERY === */
+/* === SWIPER SECTION === */
 .swiper-section {
   padding: 60px 15px;
+  text-align: center;
 }
 
 .mySwiperA,
@@ -184,6 +196,64 @@ p {
 
 .swiper-pagination-bullet {
   background: var(--orange);
+}
+
+/* === MODAL === */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(10, 0, 20, 0.85);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 2000;
+  padding: 1rem;
+}
+
+.modal-overlay.visible {
+  display: flex;
+}
+
+.modal-body {
+  font-family: 'Play', sans-serif;
+  font-size: 1.1rem;
+  line-height: 1.6;
+  background-color: #1a001f;
+  border: 2px solid var(--orange);
+  padding: 2rem;
+  border-radius: 10px;
+  max-width: 600px;
+  width: 100%;
+  box-shadow: 0 0 30px rgba(0,0,0,0.7);
+  position: relative;
+  color: var(--text-light);
+  text-align: center;
+  max-height: 80vh;
+  overflow-y: auto;
+}
+
+.modal-body h3 {
+  font-family: 'Play', sans-serif;
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  color: var(--orange);
+}
+
+.modal-body p {
+  margin-top: 1rem;
+}
+
+.modal-close {
+  position: absolute;
+  top: 10px;
+  right: 16px;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: var(--orange);
+}
+
+.modal-close:hover {
+  color: #fff;
 }
 
 /* === CONTACT SECTION === */
@@ -255,68 +325,19 @@ footer img {
     max-width: 60px;
   }
 
+  .swiper-slide {
+    width: 100% !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
+
   .swiper-slide img,
   .swiper-slide video {
     max-height: 250px;
   }
 
-  .swiper-slide {
-    width: 90% !important;
+  .cta-button {
+    font-size: 1rem;
+    padding: 0.6rem 1.2rem;
   }
-}
-
-/* === MODALS === */
-.modal-overlay {
-  position: fixed;
-  inset: 0;
-  background-color: rgba(10, 0, 20, 0.85);
-  display: none;
-  justify-content: center;
-  align-items: center;
-  z-index: 2000;
-  padding: 1rem;
-}
-
-.modal-overlay.visible {
-  display: flex;
-}
-
-.modal-body {
-  font-family: 'Play', sans-serif;
-  font-size: 1.1rem;
-  line-height: 1.6;
-  background-color: #1a001f;
-  border: 2px solid var(--orange);
-  padding: 2rem;
-  border-radius: 10px;
-  max-width: 600px;
-  width: 100%;
-  box-shadow: 0 0 30px rgba(0,0,0,0.7);
-  position: relative;
-  color: var(--text-light);
-  text-align: center;
-}
-
-.modal-body h3 {
-  font-family: 'Play', sans-serif;
-  font-size: 1.5rem;
-  margin-bottom: 1rem;
-  color: var(--orange);
-}
-
-.modal-body p {
-  margin-top: 1rem;
-}
-
-.modal-close {
-  position: absolute;
-  top: 10px;
-  right: 16px;
-  font-size: 1.5rem;
-  cursor: pointer;
-  color: var(--orange);
-}
-
-.modal-close:hover {
-  color: #fff;
 }
