@@ -44,6 +44,7 @@ h3 {
 }
 
 p {
+  font-family: 'BioRhyme', serif;
   font-weight: 300;
   color: #ccc;
 }
@@ -53,24 +54,23 @@ p {
   background-color: var(--dark-purple);
   text-align: center;
   padding: 90px 0;
-  transition: padding 0.4s ease, background 0.4s ease;
+  transition: all 0.3s ease;
   position: sticky;
   top: 0;
   z-index: 1000;
-  will-change: padding;
 }
 
 .hero.shrink {
-  padding: 20px 0;
+  padding: 8px 0;
 }
 
 .logo {
-  max-width: 400px;
-  transition: max-width 0.4s ease;
+  max-width: 300px;
+  transition: max-width 0.3s ease;
 }
 
 .hero.shrink .logo {
-  max-width: 80px;
+  max-width: 140px;
 }
 
 .hero h1 {
@@ -82,32 +82,17 @@ p {
 }
 
 /* === TAGLINE === */
-.hero h2.tagline {
-  font-family: 'Play', sans-serif;
-  color: white;
-  font-size: 2.5rem;
-  margin: 0;
-  line-height: 1.2;
-}
-
+.hero h2.tagline,
 .hero p.tagline {
-  font-family: 'BioRhyme', serif;
-  font-size: 1.2rem;
-  margin-top: 0.3rem;
-  margin-bottom: 0.3rem;
-  color: var(--text-light);
-  line-height: 0.95;
+  transition: opacity 0.3s ease, transform 0.3s ease;
 }
 
 .hero.shrink .tagline {
+  font-size: 0.01rem;
   opacity: 0;
-  transform: scaleY(0);
-  height: 0;
-  overflow: hidden;
-  margin: 0;
-  padding: 0;
+  transform: translateY(-20px);
   visibility: hidden;
-  transition: opacity 0.3s ease, transform 0.3s ease;
+  pointer-events: none;
 }
 
 /* === CTA BUTTON === */
@@ -135,7 +120,7 @@ p {
 
 /* === SWIPER SECTION === */
 .swiper-section {
-  padding: 60px 15px;
+  padding: 120px 15px 60px;
   text-align: center;
 }
 
@@ -351,6 +336,32 @@ footer img {
 :target::before {
   content: "";
   display: block;
-  height: 120px; /* Match your sticky header height */
+  height: 120px;
   margin-top: -120px;
+}
+
+.reset-arrow {
+  display: none; /* hidden by default */
+}
+
+.hero.shrink .reset-arrow {
+  display: inline-flex;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+  width: 60px;
+  height: 60px;
+  background: var(--neon-pink);
+  color: #fff;
+  font-size: 2rem;
+  border-radius: 50%;
+  box-shadow: 0 0 15px #cc33ff;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.3s ease;
+}
+
+.reset-arrow:hover {
+  background: #ff99ff;
+  transform: translateY(2px);
 }

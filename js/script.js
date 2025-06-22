@@ -1,20 +1,40 @@
 document.addEventListener("DOMContentLoaded", () => {
   const header = document.querySelector(".hero");
+  const resetArrow = document.querySelector(".reset-arrow");
   const form = document.querySelector("form");
 
-  // === Shrink Header on Scroll ===
-  if (header) {
-    window.addEventListener("scroll", () => {
-      header.classList.toggle("shrink", window.scrollY > 50);
-    });
-  }
+  let shrinkLocked = false;
+  let userStartedScroll = false;
+
+  // Prevent header shrinking until manual scroll
+  const handleScroll = () => {
+    if (!userStartedScroll && window.scrollY > 50) {
+      userStartedScroll = true;
+    }
+
+    if (userStartedScroll && window.scrollY > 50 && !shrinkLocked) {
+      header.classList.add("shrink");
+    }
+  };
+
+  // Use passive scroll listener for performance
+  window.addEventListener("scroll", handleScroll, { passive: true });
+
+  // Reset arrow click restores expanded header and re-locks shrinking
+  resetArrow?.addEventListener("click", () => {
+    header.classList.remove("shrink");
+    shrinkLocked = true;
+
+    // Optionally unlock after short delay
+    setTimeout(() => {
+      shrinkLocked = false;
+    }, 2000);
+  });
 
   // === Clear Form on Submit ===
-  if (form) {
-    form.addEventListener("submit", () => {
-      form.reset();
-    });
-  }
+  form?.addEventListener("submit", () => {
+    form.reset();
+  });
 
   // === Swiper A ===
   new Swiper(".mySwiperA", {
@@ -130,6 +150,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
+  // === Smooth Scroll to Contact Section ===
   document.querySelectorAll('a[href="#contact"]').forEach(link => {
     link.addEventListener('click', function(e) {
       e.preventDefault();
