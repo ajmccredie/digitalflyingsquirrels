@@ -32,9 +32,14 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   // === Clear Form on Submit ===
-  form.addEventListener("submit", () => {
-    form.reset();
-  });
+  if (form) {
+    form.addEventListener("submit", function () {
+      // Delay form reset until after Formspree has received it
+      setTimeout(() => {
+        form.reset();
+      }, 1000); // 1 second delay is usually enough
+    });
+  }
 
   // === Swiper A ===
   new Swiper(".mySwiperA", {
