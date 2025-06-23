@@ -32,7 +32,7 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   // === Clear Form on Submit ===
-  form?.addEventListener("submit", () => {
+  form.addEventListener("submit", () => {
     form.reset();
   });
 
