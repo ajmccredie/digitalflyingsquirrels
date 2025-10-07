@@ -184,7 +184,13 @@ p {
 }
 
 .swiper-pagination-bullet {
-  background: var(--orange);
+  background-color: white !important;
+  opacity: 0.5 !important;
+}
+
+.swiper-pagination-bullet-active {
+  background-color: var(--orange) !important;
+  opacity: 1 !important;
 }
 
 /* === MODAL === */
@@ -294,6 +300,10 @@ footer img {
   height: 24px;
   vertical-align: middle;
   margin-left: 10px;
+}
+
+footer a {
+  text-decoration: none;
 }
 
 /* === RESPONSIVE === */
